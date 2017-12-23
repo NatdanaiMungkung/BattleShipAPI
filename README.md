@@ -10,7 +10,11 @@ change the configuration of the db connection on (need to transpile to js after 
 or 
 `utils/constant.js`
 
-then 
+`public URL:string = 'mongodb://localhost:27017';`
+By default will use `local` db, for testing will use `test` db
+    `public DBNAME:string =  process.env.NODE_ENV !== 'test'?'local':'test';`
+
+to run the server type
 `node app.js`
 
 use POSTMAN file in /postman/postman.json to call API
