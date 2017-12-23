@@ -17,20 +17,35 @@ use POSTMAN file in /postman/postman.json to call API
 https://www.getpostman.com/
 
 <details>
-   <summary>localhost:3000/</summary>
+   <summary>GET localhost:3000/</summary>
    <p>Get version of the API</p>
-  <p>ex. `{
+  <p>ex. {
     "version": "1.0"
-    }`</p>
+    }</p>
  </details>
  <details>
-   <summary>localhost:3000/battleship</summary>
+   <summary>GET localhost:3000/battleship</summary>
    <p>Get new Game Id, API will return GameId, this will generate board and populate all the required ship in the board,
   Saved the location of ships in the DB `battleship_in_progress` and `battleship_logs`</p>
   <p>
-    <p>ex. `{
+    <p>Response ex. {
     "Id": "5a3dd4dc71fd6381dc085c44"
-}`</p>
+}</p>
+ </details>
+ 
+ <details>
+   <summary>POST localhost:3000/battleship</summary>
+   <p>Send target location object with GameId, if found GameID that match, API will check if target hit or miss</p>
+   <p>
+    Request ex. {
+	"GameId":"5a350c7b22b7af52ac31c93d",
+	"Col":4,
+	"Row":1
+}</p>
+  <p>
+    Response ex. {
+    "Result": "Miss"
+}</p>
  </details>
 
 to run test
