@@ -1,0 +1,129 @@
+{
+	"info": {
+		"name": "BattleshipAPI",
+		"_postman_id": "44096ca3-a665-f63c-6161-88275fb9857d",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/battleship",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"try{",
+							"    if(responseCode.code === 200){",
+							"        tests[\"Status code is 200\"] = true;",
+							"        ",
+							"        if (responseBody !== \"{}\"){",
+							"            //Check json response body here..",
+							"            var jsonBody = JSON.parse(responseBody);//the request must returns a valid body first, else the testcase would break.",
+							"        ",
+							"            tests[\"Body has 'Result'\"] = responseBody.has(\"Result\");",
+							"        }",
+							"      else{",
+							"        tests[\"Alert! Body has \" + responseBody] = false;",
+							"      }",
+							"    }",
+							"    else{",
+							"      tests[\"Alert! Status code is \" + responseCode.code + \": \" + responseBody] = false;",
+							"    }",
+							"}",
+							"catch(e){",
+							"    tests[\"Alert! JavaScript Test Error: \" + e] = false;",
+							"    // Prevent JSON syntax error from aborting the test suite.",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"GameId\":\"5a350c7b22b7af52ac31c93d\",\n\t\"Col\":4,\n\t\"Row\":1\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/battleship",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"battleship"
+					]
+				},
+				"description": "StartGame"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/battleship",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"try{",
+							"    if(responseCode.code === 200){",
+							"        tests[\"Status code is 200\"] = true;",
+							"        ",
+							"        if (responseBody !== \"{}\"){",
+							"            //Check json response body here..",
+							"            var jsonBody = JSON.parse(responseBody);//the request must returns a valid body first, else the testcase would break.",
+							"        ",
+							"            tests[\"Body has 'Id'\"] = responseBody.has(\"Id\");",
+							"        }",
+							"      else{",
+							"        tests[\"Alert! Body has \" + responseBody] = false;",
+							"      }",
+							"    }",
+							"    else{",
+							"      tests[\"Alert! Status code is \" + responseCode.code + \": \" + responseBody] = false;",
+							"    }",
+							"}",
+							"catch(e){",
+							"    tests[\"Alert! JavaScript Test Error: \" + e] = false;",
+							"    // Prevent JSON syntax error from aborting the test suite.",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"GameId\":\"5a350c7b22b7af52ac31c93d\",\n\t\"Col\":4,\n\t\"Row\":1\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/battleship",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"battleship"
+					]
+				},
+				"description": "StartGame"
+			},
+			"response": []
+		}
+	]
+}
