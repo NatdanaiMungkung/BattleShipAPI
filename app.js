@@ -11,7 +11,7 @@ var app = express();
 var mongoDb = new mongodb_1.MongoDB();
 var util = new utils_1.Util();
 app.get('/', function (req, res) {
-    res.json({ 'version': 1.0 });
+    res.json({ 'version': '1.0' });
 });
 app.use(bodyParser.json());
 app.get('/battleship', function (req, res) {
