@@ -12,9 +12,9 @@ describe('GET/', function () {
             expect(res.body).toIncludeKey('version');
         })
             .end(function (err, res) {
-            // if (err) {
-            //     return done(err)
-            // }
+            if (err) {
+                return done(err);
+            }
             done();
         });
     });
@@ -25,12 +25,30 @@ describe('GET/battleship', function () {
             .get('/battleship')
             .expect(200)
             .expect(function (res) {
-            expect(res.body).toIncludeKey('GameId');
+            expect(res.body).toIncludeKey('Id');
         })
             .end(function (err, res) {
-            // if (err) {
-            //     return done(err)
-            // }
+            if (err) {
+                return done(err);
+            }
+            done();
+        });
+    });
+});
+describe('POST/battleship', function () {
+    it('should return 400 if request incorrect', function (done) {
+        supertest(app)
+            .post('/battleship')
+            .send({
+            "GameId": "5a350c7b22b7af52ac31c93e",
+            "Col": 4,
+            "Row": 1
+        })
+            .expect(400)
+            .end(function (err, res) {
+            if (err) {
+                return done(err);
+            }
             done();
         });
     });
